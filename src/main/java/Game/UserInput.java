@@ -1,11 +1,15 @@
 package Game;
 
+import java.util.Scanner;
+
 public class UserInput {
 	
 	Game game;
+	Scanner scanner;
 	
 	UserInput(Game game){
 		this.game = game;
+		this.scanner = new Scanner(System.in);  // Create a Scanner object
 	}
 	
 	public void quit() {
@@ -13,7 +17,14 @@ public class UserInput {
 		System.exit(0);
 	}
 	
-	public void receiveMovement (char key){
+	public void winGame() {
+		System.out.println("Game won! Thanks for playing");
+		this.scanner.close();
+		System.exit(0);
+	}
+	
+	public void receiveMovement (){
+		char key = this.scanner.next().charAt(0);  // Read user input
 		
 		if(key == 'w') {
 			this.game.movePlayer(1);
