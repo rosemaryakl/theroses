@@ -115,7 +115,7 @@ public class Game {
 	}
 	
 	public boolean checkIfWin() {
-		
+		this.calcDistance();
 		return (this.distTreasure == 0);
 	}
 
