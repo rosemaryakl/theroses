@@ -20,7 +20,7 @@ public class Runner {
 		System.out.println("Use WASD to move");
 		
 		// Start playing game
-		while(game.checkIfWin()) {
+		while(!game.checkIfWin()) {
 			userInput.receiveMovement();
 		}
 		

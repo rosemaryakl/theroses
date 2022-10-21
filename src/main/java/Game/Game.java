@@ -45,7 +45,7 @@ public class Game {
 		this.treasure_x = genTreasureCoord(grid_size, player_x);
 		this.treasure_y = genTreasureCoord(grid_size, player_y);
 		this.calcDistance();
-		
+		this.printPosition();
 	}
 	
 	public void movePlayer(int direction) {
@@ -91,6 +91,8 @@ public class Game {
 		}
 		
 		this.calcDistance();
+		printPosition();
+		System.out.println(String.format("You are %d spaces from the treasure", this.distTreasure));
 	}
 	
 	public void calcDistance() {
@@ -106,6 +108,16 @@ public class Game {
 		}
 		
 		return i_pos;
+	}
+	
+	public void printPosition() {
+		double middle = grid_size/2;
+		int relative_x = (int) Math.ceil(this.player_x - middle);
+		int relative_y = (int) Math.ceil(this.player_y - middle);
+		String horizontal_compass = (relative_x<0 ? "West" : "East");
+		String vertical_compass = (relative_y<0 ? "South": "North");
+		
+		System.out.println(String.format("You are currently at %d %s, %d %s", relative_x, horizontal_compass, vertical_compass));
 	}
 	
 	public static int genRandom(int max) {
