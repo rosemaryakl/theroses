@@ -84,7 +84,7 @@ public class Game {
 				System.out.println("Cannot move out of bounds (west)");
 			}
 			else {
-				this.player_y--;
+				this.player_x--;
 			}
 			break;
 		
@@ -117,7 +117,7 @@ public class Game {
 		String horizontal_compass = (relative_x<0 ? "West" : "East");
 		String vertical_compass = (relative_y<0 ? "South": "North");
 		
-		System.out.println(String.format("You are currently at %d %s, %d %s", relative_x, horizontal_compass, vertical_compass));
+		System.out.println(String.format("You are currently at %d %s, %d %s", Math.abs(relative_x), horizontal_compass, Math.abs(relative_y), vertical_compass));
 	}
 	
 	public static int genRandom(int max) {
