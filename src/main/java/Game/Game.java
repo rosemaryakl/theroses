@@ -22,7 +22,6 @@ public class Game {
 	 * - generateRandomPosition
 	 * - printPlayerPos
 	 * 
-	 * 
 	 */
 
 

@@ -1,10 +1,15 @@
 package Game;
 
 public class UserInput {
+	
+	/* attribute
+	 *  - scanner object 
+	 *  
+	 *  methods
+	 *  - receiveMovement
+	 *  - quitGame (closes Scanner)
+	 */
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-	}
 
 }
