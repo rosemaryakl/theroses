@@ -10,10 +10,11 @@ public class Runner {
 //		System.out.println("Hello world!");
 		
 		// Create Game object
-		Game game = new Game(15);
+		Game game = new Game(10);
 		
 		// Create UserInput
 		UserInput userInput = new UserInput(game);
+		Board b = new Board(game,'X');
 		
 		// Start game
 		System.out.println("Welcome to maze game");
@@ -21,6 +22,9 @@ public class Runner {
 		
 		// Start playing game
 		while(!game.checkIfWin()) {
+//			System.out.println(game.player_x);
+//			System.out.println(game.player_y);
+			b.printBoard();
 			userInput.receiveMovement();
 		}
 		

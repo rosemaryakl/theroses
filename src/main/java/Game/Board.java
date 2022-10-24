@@ -10,6 +10,11 @@ public class Board {
 		this.game = game;
 	}
 	
+	public Board(Game game, char player_symbol) {
+		this.game = game;
+		this.player_symb = player_symbol;
+	}
+	
 	public String getSpace(int count)
 	{
 	  String space="";
@@ -20,10 +25,10 @@ public class Board {
 	
 	public void printBoard() {
 		
-		for (int i = 0; i < game.grid_size; i++) {
+		for (int i = 1; i < game.grid_size+1; i++) {
 			
 			if (i == game.grid_size - game.player_y) {
-				System.out.println('|'+ getSpace(game.player_x -1) + player_symb + getSpace(game.grid_size - game.player_x) +"|");
+				System.out.println('|'+ getSpace(game.player_x) + this.player_symb + getSpace(game.grid_size - game.player_x - 1) +"|");
 			}
 			else {
 				System.out.println('|'+getSpace(game.grid_size)+"|");				

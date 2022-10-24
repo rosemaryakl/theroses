@@ -18,6 +18,12 @@ public class UserInput {
 	}
 	
 	public void winGame() {
+		System.out.println(" ____      ____  _____   ____  _____   ____  _____   ________   _______      _   _    ");
+		System.out.println("|_  _|    |_  _||_   _| |_   \\|_   _| |_   \\|_   _| |_   __  | |_   __ \\    | | | | ");
+		System.out.println("  \\ \\  /\\  / /    | |     |   \\ | |     |   \\ | |     | |_ \\_|   | |__) |   | | | | ");
+		System.out.println("   \\ \\/  \\/ /     | |     | |\\ \\| |     | |\\ \\| |     |  _| _    |  __ /    | | | | ");
+		System.out.println("    \\  /\\  /     _| |_   _| |_\\   |_   _| |_\\   |_   _| |__/ |  _| |  \\ \\_  |_| |_|");
+		System.out.println("     \\/  \\/     |_____| |_____|\\____| |_____|\\____| |________| |____| |___| (_) (_) ");
 		System.out.println("Game won! Thanks for playing");
 		this.scanner.close();
 		System.exit(0);
