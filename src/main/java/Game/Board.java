@@ -15,25 +15,26 @@ public class Board {
 		this.player_symb = player_symbol;
 	}
 	
-	public String getSpace(int count)
+	public String getMultipleChar(String given_char, int count)
 	{
-	  String space="";
-	  for(int i=0;i<count;i++)
-	        space+=" ";
-	   return space;
+	  return given_char.repeat(count);
 	}
 	
 	public void printBoard() {
 		
+		System.out.println(getMultipleChar("_", game.grid_size+2));
+		
 		for (int i = 1; i < game.grid_size+1; i++) {
 			
 			if (i == game.grid_size - game.player_y) {
-				System.out.println('|'+ getSpace(game.player_x) + this.player_symb + getSpace(game.grid_size - game.player_x - 1) +"|");
+				System.out.println('|'+ getMultipleChar(" ", game.player_x) + this.player_symb + getMultipleChar(" ", game.grid_size - game.player_x - 1) +"|");
 			}
 			else {
-				System.out.println('|'+getSpace(game.grid_size)+"|");				
+				System.out.println('|'+getMultipleChar(" ", game.grid_size)+"|");				
 			}
 		}
+		System.out.println(getMultipleChar("\u203E", game.grid_size+2));
+		
 	}
 
 //	public static void main(String[] args) {
