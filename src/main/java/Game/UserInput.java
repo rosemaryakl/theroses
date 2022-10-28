@@ -7,7 +7,7 @@ public class UserInput {
 	Game game;
 	Scanner scanner;
 	
-	UserInput(Game game){
+	public UserInput(Game game){
 		this.game = game;
 		this.scanner = new Scanner(System.in);  // Create a Scanner object
 	}
