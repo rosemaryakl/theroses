@@ -1,6 +1,9 @@
 package Game;
 
+import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
+
+import org.javatuples.Pair;
 
 public class Game {
 	
@@ -50,7 +53,7 @@ public class Game {
 	 * 
 	 */
 	
-	
+	/* ADD
 	public Game(int grid_size) {
 		this.grid_size = grid_size;
 		this.player_x = genRandom(grid_size);
@@ -60,6 +63,70 @@ public class Game {
 		this.calcDistance();
 		this.printPosition();
 	}
+	
+    private int grid_size;
+    private int noOfTreas;
+    private int noOfMons;
+    
+//    public int player_x;
+//    public int player_y;
+//    public int treasure_x;
+//    public int treasure_y;
+//    public int distTreasure;
+//    
+    
+    /*
+    // methods
+    // - checkIfWin
+     * - calculateDistance
+     * - moveNorth
+     * - moveSouth
+     * - moveEast
+     * - moveWest
+     * - checkBoundary
+     * - generateRandomPosition
+     * - printPlayerPos
+     *
+     */
+   
+    public Game(int grid_size, int noOfTreas, int noOfMons) {
+        
+        this.grid_size = grid_size;
+        this.noOfTreas = noOfTreas;
+        this.noOfMons = noOfMons;
+        
+        Player p = new Player();
+        
+        //GameEntity[] gi = new GameEntity[1+noOfTreas+noOfMons];
+        
+        EntitiesInPlay entitiesInPlay = new EntitiesInPlay();
+        
+        
+        
+        entitiesInPlay.addEntity(p);
+        
+        
+        for (int i=0; i < noOfTreas; i++) {
+            Treasure treasure = new Treasure();
+            
+            
+            while(entitiesInPlay.getEntity(treasure.getPosition()) != null) {
+            	treasure.setPosition(grid_size);
+            }
+            
+            entitiesInPlay.addEntity(treasure);
+        }
+        
+        for (int i = 0; i < noOfMons; i++) {
+            Monster monster = new Monster();
+            
+            entitiesInPlay.addEntity(monster);
+        }
+        
+       
+        
+        
+    }
 	
 	public void movePlayer(int direction) {
 		
