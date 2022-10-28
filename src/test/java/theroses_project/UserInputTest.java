@@ -3,6 +3,9 @@ package theroses_project;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -23,12 +26,13 @@ public class UserInputTest {
 	
 	@Mock
 	public static Game gc;
+	private static final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 	
 	@BeforeClass
 	public static void setup() {
-		System.out.println("Before Class");
-	    when(gc.movePlayer(2)).thenReturn(null);
+		System.out.println("Before Class");	
 	    gc = mock(Game.class);
+	    System.setOut(new PrintStream(outputStreamCaptor));
 	}
 	
 	@Before
@@ -36,8 +40,10 @@ public class UserInputTest {
 		dc = new UserInput(gc);
 	}
 	
-	@Test
-	public void test() {
-	    assertEquals(mockedmovePlayer.getUniqueId(), 23);
+	@Test(expected=IllegalStateException.class)
+	public void testWinGame() {
+	    dc.winGame();
+	    assertEquals("Game won! Thanks for playing", outputStreamCaptor.toString().trim());
+	    dc.scanner.next();
 	}
 }

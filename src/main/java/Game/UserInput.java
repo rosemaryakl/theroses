@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UserInput {
 	
 	Game game;
-	Scanner scanner;
+	public Scanner scanner;
 	
 	public UserInput(Game game){
 		this.game = game;
