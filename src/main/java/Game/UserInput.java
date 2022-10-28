@@ -5,29 +5,28 @@ import java.util.Scanner;
 public class UserInput {
 	
 	Game game;
-	Scanner scanner;
+	public Scanner scanner;
 	
-	UserInput(Game game){
+	public UserInput(Game game){
 		this.game = game;
 		this.scanner = new Scanner(System.in);  // Create a Scanner object
 	}
 	
-	public void quit() {
-		System.out.println("Game over!");
-		System.exit(0);
-	}
 	
 	public void winGame() {
 		System.out.println("Game over! Thanks for playing");
 		this.scanner.close();
-		System.exit(0);
 	}
 	
 	public void receiveMovement (){
 		String input = this.scanner.next().toLowerCase();
 		char key = input.charAt(0);  // Read user input
 		
-		if(key == 'w') {
+		if (key == 'q'){
+			System.out.println("You quit the game");
+			return true;
+		}
+		else if(key == 'w') {
 			this.game.movePlayer(1);
 		}
 		else if (key == 'd') {
@@ -39,8 +38,6 @@ public class UserInput {
 		else if (key == 'a') {
 			this.game.movePlayer(4);
 		}
-		else if (key == 'q'){
-			quit();
-		}
+		return false;		
 	}
 }
