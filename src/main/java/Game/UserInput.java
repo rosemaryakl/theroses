@@ -14,12 +14,13 @@ public class UserInput {
 	
 	
 	public void winGame() {
-		System.out.println("Game won! Thanks for playing");
+		System.out.println("Game over! Thanks for playing");
 		this.scanner.close();
 	}
 	
-	public Boolean receiveMovement (){
-		char key = this.scanner.next().charAt(0);  // Read user input
+	public void receiveMovement (){
+		String input = this.scanner.next().toLowerCase();
+		char key = input.charAt(0);  // Read user input
 		
 		if (key == 'q'){
 			System.out.println("You quit the game");
