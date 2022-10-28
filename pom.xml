@@ -5,4 +5,15 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>bootcamp_project</name>
   <description>Project for bootcamp</description>
+  
+  <dependencies>
+  
+  	<!-- https://mvnrepository.com/artifact/org.javatuples/javatuples -->
+	<dependency>
+	    <groupId>org.javatuples</groupId>
+	    <artifactId>javatuples</artifactId>
+	    <version>1.2</version>
+	</dependency>
+
+  </dependencies>
 </project>
