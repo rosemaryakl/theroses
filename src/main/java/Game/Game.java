@@ -4,6 +4,19 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
 	
+	/*
+	 * checkIfEntity() -> check if an entity is in the same position
+	 * entityAction() -> sends message, possibly end the game
+	 * gameTick() -> calls movePlayer(), checkIfEntity(), entityAction()
+	 * 
+	 */
+	
+	
+	/*
+	 * check player and treasure not on top of monster initially
+	 * 
+	 */
+	
 	/* attributes
 	// - player x pos
 	// - player y pos
@@ -87,6 +100,9 @@ public class Game {
 				this.player_x--;
 			}
 			break;
+			
+			// Check if player encountered monster
+			
 		
 		}
 		
