@@ -8,4 +8,5 @@ public class Treasure extends GameEntity {
 	Treasure(int gridSize){
 		super(gridSize, true, "You won!");
 	}
+
 }

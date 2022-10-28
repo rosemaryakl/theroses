@@ -14,7 +14,7 @@ public class Runner {
 		
 		// Create UserInput
 		UserInput userInput = new UserInput(game);
-		Boolean userQuit = false;
+		
 		// Start game
 		System.out.println("Welcome to maze game");
 		System.out.println("Use WASD to move");
