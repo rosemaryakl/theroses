@@ -14,14 +14,14 @@ public class Runner {
 		
 		// Create UserInput
 		UserInput userInput = new UserInput(game);
-		
+		Boolean userQuit = false;
 		// Start game
 		System.out.println("Welcome to maze game");
 		System.out.println("Use WASD to move");
 		
 		// Start playing game
-		while(!game.checkIfWin()) {
-			userInput.receiveMovement();
+		while(!game.checkIfWin() && !userQuit) {
+			userQuit = userInput.receiveMovement();
 		}
 		
 		// closes the UserInput/Scanner at the end
