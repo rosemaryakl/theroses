@@ -18,13 +18,14 @@ public class UserInput {
 	}
 	
 	public void winGame() {
-		System.out.println("Game won! Thanks for playing");
+		System.out.println("Game over! Thanks for playing");
 		this.scanner.close();
 		System.exit(0);
 	}
 	
 	public void receiveMovement (){
-		char key = this.scanner.next().charAt(0);  // Read user input
+		String input = this.scanner.next().toLowerCase();
+		char key = input.charAt(0);  // Read user input
 		
 		if(key == 'w') {
 			this.game.movePlayer(1);

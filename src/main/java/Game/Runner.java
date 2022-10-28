@@ -10,7 +10,7 @@ public class Runner {
 //		System.out.println("Hello world!");
 		
 		// Create Game object
-		Game game = new Game(15);
+		Game game = new Game(15, 3);
 		
 		// Create UserInput
 		UserInput userInput = new UserInput(game);
@@ -20,7 +20,7 @@ public class Runner {
 		System.out.println("Use WASD to move");
 		
 		// Start playing game
-		while(!game.checkIfWin()) {
+		while(!game.checkIfEntity()) {
 			userInput.receiveMovement();
 		}
 		

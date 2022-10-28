@@ -17,10 +17,11 @@ public abstract class GameEntity {
 	private final String message;
 	private Pair<Integer, Integer> position;
 	
+	
 	// Constructor
-	GameEntity(Pair<Integer, Integer> position, boolean endGame, String message){
+	GameEntity(int gridSize, boolean endGame, String message){
 		// Generate position
-		this.position = position;
+		setPosition(gridSize);
 		
 		this.endGame = endGame;
 		
@@ -38,11 +39,26 @@ public abstract class GameEntity {
 
 	}
 	
+	public boolean isEndGame() {
+		return endGame;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
 	public Pair<Integer, Integer> getPosition(){
 		return this.position;
 	}
 	
-	
+	public int getxPos() {
+		return position.getValue0();
+	}
+
+	public int getyPos() {
+		return position.getValue1();
+	}
+
 	
 	//Map.get(Position);
 	// Monster is at (2,3) map.get((2,3)) will return the monster
