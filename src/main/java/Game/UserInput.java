@@ -16,7 +16,7 @@ public class UserInput {
         //this.scanner.close();
         //System.exit(0);
     }
-    public void receiveMovement (){
+    public char receiveMovement (){
         String input = this.scanner.next().toLowerCase();
         char key = input.charAt(0);  // Read user input
         if(key == 'w') {
@@ -34,5 +34,6 @@ public class UserInput {
         else if (key == 'q'){
             quit();
         }
+        return key;
     }
 }
