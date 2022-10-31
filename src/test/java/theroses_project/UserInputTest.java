@@ -65,13 +65,11 @@ public class UserInputTest {
 	    assertFalse(dc.scanner.next()==null);
 	}
 	
-	@Test
-	public void testMovement()
-    {
-		String forwardMove = "w";
-		provideInput(forwardMove);
-        assertFalse(dc.receiveMovement());
-        verify(gc).movePlayer(1);
-        
-    }   
+//	@Test
+//	public void testMovement()
+//    {
+//		String forwardMove = "w";
+//		provideInput(forwardMove);
+//        
+//    }   
 }
