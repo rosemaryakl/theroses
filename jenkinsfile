@@ -1,0 +1,43 @@
+#!/usr/bin/env groovy
+pipeline {
+ agent any
+ tools {
+  maven 'M3_LOCAL'
+ }
+  stages {   
+    stage('Checkout') {
+        steps {
+            git url: 'https://github.com/rosemaryakl/theroses.git',
+                branch: 'main'
+        }
+    }
+    stage('Test') {
+      steps {
+        sh "mvn clean test"
+      }
+    }
+    stage('Build') {
+      steps {
+        sh "mvn -DskipTests=true clean package"
+      }
+    }
+    stage('Play') {
+      steps {
+        sh '''#!/bin/bash
+
+                    cd /var/lib/jenkins/workspace/theroses-game
+                    sudo chmod -R 777 .
+                    echo "d s a w d d d q" | {
+                    	mvn package
+                    	 java -jar target/bootcamp_project-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+                    }
+            '''
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh "echo 'Deploying'"
+      }
+    }
+  }
+}
