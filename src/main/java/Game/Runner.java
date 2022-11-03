@@ -9,7 +9,7 @@ public class Runner {
 	public static void main(String[] args) {
 //      System.out.println("Hello world!");
         // Create Game object
-        Game game = new Game(15, 10);
+        Game game = new Game(15, 3);
         // Create UserInput
         UserInput userInput = new UserInput(game);
         // Start game
