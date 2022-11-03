@@ -177,7 +177,7 @@ public class Game {
 	public boolean checkIfEntity() {
 		GameEntity entity = entitiesInPlay.getEntity(this.p.getPosition());
 		
-		if(entity != null && entity instanceof Monster) {
+		if(entity != null) {
 			System.out.println(entity.getMessage());
 			
 			return entity.isEndGame();
