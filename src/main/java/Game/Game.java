@@ -1,9 +1,6 @@
 package Game;
 
-import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
-
-import org.javatuples.Pair;
 
 public class Game {
 	
@@ -53,19 +50,18 @@ public class Game {
         Treasure treasure = new Treasure(grid_size);
         this.t = treasure;
         
-        while(entitiesInPlay.getEntity(treasure.getPosition()) != null && treasure.getPosition() != p.getPosition()) {
+        while(entitiesInPlay.getEntity(treasure.getPosition()) != null  && treasure.getPosition().equals(p.getPosition())) {
         	treasure.setPosition(grid_size);
         }
         
         entitiesInPlay.addEntity(treasure);
-        
-        
-        
+
         // Add monsters
         for (int i = 0; i < noOfMons; i++) {
             Monster monster = new Monster(grid_size);
+            monster.setPosition(grid_size);
             
-            while(entitiesInPlay.getEntity(monster.getPosition()) != null && monster.getPosition() != p.getPosition()) {
+            while(monster.getPosition().equals(p.getPosition()) || monster.getPosition().equals(treasure.getPosition())) {
             	monster.setPosition(grid_size);
             }
             
@@ -144,6 +140,14 @@ public class Game {
 		return dist_x + dist_y; 
 	}
 	
+	public void debugPosition() {
+		int i = 1;
+		for(GameEntity entity : this.entitiesInPlay.gi.values()) {
+				System.out.println("Position: " + entity.getPosition() + " distance: " + calcDistance(entity) + " " + (entity instanceof Monster));
+				i++;
+		}
+	}
+	
 	public void printPosition() {
 		int i = 1;
 		for(GameEntity entity : this.entitiesInPlay.gi.values()) {
@@ -173,7 +177,7 @@ public class Game {
 	public boolean checkIfEntity() {
 		GameEntity entity = entitiesInPlay.getEntity(this.p.getPosition());
 		
-		if(entity != null) {
+		if(entity != null && entity instanceof Monster) {
 			System.out.println(entity.getMessage());
 			
 			return entity.isEndGame();
