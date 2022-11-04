@@ -17,7 +17,6 @@ pipeline {
     }
     stage('Build') {
         steps {
-            sh "chmod +x docker-jenkins.sh"
             sh "./docker-jenkins.sh"
         }
     }
