@@ -1,3 +1,4 @@
+#!/bin/bash 
 # Build image (replaces existing image)
 docker build -f dockerfile-jenkins . -t game
 # Run container in interactive mode and delete after exiting
